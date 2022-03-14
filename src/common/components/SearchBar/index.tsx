@@ -2,10 +2,11 @@ import { ChangeEvent, useState } from "react";
 import "./styles.scss"
 
 interface ISearchBarProps {
-    textOnly: boolean
+    textOnly: boolean,
+    searchTextHandler: <T>(newQuery: T) => void
 }
 
-const SearchBar = ({ textOnly }: ISearchBarProps) => {
+const SearchBar = ({ textOnly, searchTextHandler }: ISearchBarProps) => {
     const [inputText, setInputText] = useState("");
     const [isValidationError, setIsValidationError] = useState(false)
 
@@ -27,7 +28,7 @@ const SearchBar = ({ textOnly }: ISearchBarProps) => {
         <div className="searchbar">
             <div>
                 <input className="searchbar__input" onChange={validateInput} type="text" value={inputText} />
-                <button className="searchbar__button">Search Name</button>
+                <button onClick={() => { searchTextHandler(inputText) }} className="searchbar__button">Search Name</button>
             </div>
             {isValidationError && <div className="searchbar__validator">
                 <span>Please enter only names</span>
