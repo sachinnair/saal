@@ -10,9 +10,9 @@ interface IPaginatorProps {
 const Paginator = ({ children, navigationHandler, pageNo }: IPaginatorProps) => {
 
     const navigationListener = (direction: string) => {
-        if(direction === "prev" && pageNo > 1) {
+        if (direction === "prev" && pageNo > 1) {
             pageNo -= 1;
-        } else if(direction === "next") {
+        } else if (direction === "next") {
             pageNo += 1;
         }
 
