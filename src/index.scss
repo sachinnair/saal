@@ -5,7 +5,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: antiquewhite;
+  font-size: 1rem;
 }
+
+button {
+  font-size: inherit
+}
+
+input {
+  font-size: inherit;
+}
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
