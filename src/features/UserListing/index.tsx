@@ -51,7 +51,7 @@ const UserListing = () => {
                         return (<UserRow key={user.registered.date} user={user}/>)
                     })}
                 </Paginator>
-            </div> : <>Loading</>}
+            </div> : <div className="loader">...Loading</div>}
         </>
     )
 }
