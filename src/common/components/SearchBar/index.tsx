@@ -11,7 +11,7 @@ const SearchBar = ({ textOnly, searchTextHandler }: ISearchBarProps) => {
     const [isValidationError, setIsValidationError] = useState(false)
 
     function validateInput(e: ChangeEvent<HTMLInputElement>) {
-        let regexPattern = /^[a-zA-Z\s\u0600-\u065F\u066A-\u06EF\u06FA-\u06FF]+$/g
+        let regexPattern = /^[a-zA-Z\s\u0600-\u065F\u066A-\u06EF\u06FA-\u06FF]*$/g
 
         const newInput = e.target.value
         
