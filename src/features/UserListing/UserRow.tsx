@@ -1,15 +1,29 @@
 import moment from 'moment';
+import { useContext, useState } from 'react';
+import ReactDOM from 'react-dom';
+import UserContext from 'src/common/app/contexts/UserContext'
 
 interface IUserRowProps {
     user: Record<string, any>
 }
 
 const UserRow = ({ user }: IUserRowProps) => {
-    const {name, picture, login, location, dob, email, phone, cell } = user
+    const userInstanceContext = useContext(UserContext)
+
+    const [showLightBox, setShowLightBox] = useState(false);
+
+    const {name, picture, login, location, dob, email, phone, cell, gender } = user
     const { title, first, last } = name
 
-    function clickHandler() {
-        alert('test');
+
+    function nameClickHandler() {
+        userInstanceContext.setUser({
+            gender: gender,
+            email: email,
+            phoneNumber: phone || cell,
+            userName: login.username,
+        })
+    }
     }
 
     return (
@@ -22,7 +36,7 @@ const UserRow = ({ user }: IUserRowProps) => {
                     </div>
                 </div>
                 <div className="userrow__name">
-                    <strong onClick={clickHandler}>
+                    <strong onClick={nameClickHandler}>
                         <u>
                             {title} {first} {last}
                         </u>
