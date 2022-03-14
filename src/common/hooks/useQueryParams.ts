@@ -22,3 +22,5 @@ function useQueryParam<T>(
   
     return [value, setValue];
   }
+
+  export default useQueryParam
