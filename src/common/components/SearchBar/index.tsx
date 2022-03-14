@@ -30,7 +30,7 @@ const SearchBar = ({ textOnly, searchTextHandler }: ISearchBarProps) => {
                 <input className="searchbar__input" onChange={validateInput} type="text" value={inputText} />
                 <button onClick={() => { searchTextHandler(inputText) }} className="searchbar__button">Search Name</button>
             </div>
-            {isValidationError && <div className="searchbar__validator">
+            {<div style={{visibility: isValidationError ? 'visible': 'hidden'}} className="searchbar__validator">
                 <span>Please enter only names</span>
             </div>}
         </div>
