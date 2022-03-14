@@ -1,0 +1,20 @@
+@import 'src/common/global';
+
+.userdetail {
+    &__overlay{
+        background-color: black;
+    }
+    &__infocard {
+        background-color: white;
+        width: 100vw;
+        height: 100vh;    
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .userdetail__infocard {
+        width: 50%;
+        height: 50%;
+        background-color: #9090a3;
+    }
+}
