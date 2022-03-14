@@ -1,46 +1,79 @@
-# Getting Started with Create React App
+# Outline
+1. [Project setup](#project-setup)
+2. [About the application](#about-the-application)
+3. [Code structure](#code-structure)
+4. [Requirement clarity](#requirement-clarity)
+5. [Scope of improvements](#scope-of-improvements)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Setup
 
-## Available Scripts
+It is an application that was bootstrapped using Create-React-App with typescript template.
 
-In the project directory, you can run:
+One can git clone
 
-### `npm start`
+```
+ git clone git@github.com:sachinnair/saal.git
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+and then run following commands:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+npm install
+npm start
+```
+This would start project locally. Usually, accessible at http://localhost:3000/
 
-### `npm test`
+## About the Application
+<p align="center"><img src="https://user-images.githubusercontent.com/1617638/158178119-1d38366d-cd25-46c5-84ab-9a36769e1020.png" width="300" />
+<img src="https://user-images.githubusercontent.com/1617638/158178228-d1be82f5-2785-4289-aa9c-33b7c3434f0c.png" width="300" />
+ </p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This application is used to populate random list of users from https://randomuser.me/
 
-### `npm run build`
+List of users are populated across pages. For navigation across different pages one may click <i>'Prev'</i> or <i>'Next'</i>.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+There is a Search box where users are supposed to enter only valid names including Arabic Characters. It is not functional to search users but can be used to send out as a parameter to API calls. The entered input text is encoded in the URL for reference.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+When you click on a Name of the user, additional information about the user will be shown in a Popup. Desktop and Mobile popups are different based on screen width.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+When an image is clicked you would be able to view the image in a Lightbox style.
 
-### `npm run eject`
+Refreshing the Page would retain the Page and the listing that you are present in. The API calls are cached and so, navigation across already accessed pages with the same URL would not trigger network calls.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Code Structure
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+src
+ - common           // Reusable code
+    - app           // App specific common code
+    - components    // Components that could be used across different projects
+    - helpers       // Utility functions 
+    - hooks         // Hooks that could be used across Projects
+ - features
+        // Feature-wise segregation of components           
+ - pages
+        // Page focused components which are composed of Components from /feature
+ "
+ "
+ App.tsx
+ "
+ "
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Requirement Clarity:
+1. Referring to task (2), was light box as a library expected to be implemented? or a similar implementation was expected?
+   Current Implementation: A centrally aligned image is loaded which overlays the application, similar to loader implementation
+2. Referring to task (4) - was there an expectation to load all the request data to context Object? 
+   Current Implementation: Context is only used to pass the selected user's filtered data. It could be modified to be used as per expectation.
+3. Referring to task (5) - Searching by username ideally should be sending it as a parameter to API call, was there an intention to search it from the list of 10 users fetched in a page?  
+   Current Implementation: When user input is received in the input box and <i>Search Name</i> is clicked. The search text is encoded and added to the url. 
+4. Referring to task (6) - Unclear with the intention of the question.
+   Current Implementation - Made use of Query param to save the state of the application.  
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Scope of Improvements
 
-## Learn More
+Due to time constraints following areas were missed:
+- CSS clutter needs implementation of best practices.
+- Readability of the code could be improved.
+  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
