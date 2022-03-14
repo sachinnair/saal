@@ -12,7 +12,10 @@ import "./styles.scss";
 export interface IPageDetails {
     page: number,
     results?: number,
-    seed?: string
+    seed?: string,
+    filter?: {
+        name?: string
+    }
 }
 
 const UserListing = () => {
@@ -39,17 +42,27 @@ const UserListing = () => {
         setUsers(data.results)
     }, [data])
 
+
+    function searchTextHandler <T extends unknown>(newValue: T): void {
+        setPageDetails(({ ...pageDetail, filter: { name: newValue }} as IPageDetails), { replace: true }!)
+    }
+
     return (
         <>
             {status === "fetched" ? <div className="userlisting">
-                {users?.length > 0 && <SearchBar textOnly={true}/>}
+                {users?.length > 0 && <SearchBar textOnly={true} searchTextHandler={searchTextHandler} />}
                 <Paginator pageNo={pageDetail?.page!} navigationHandler={(newPageNo: number): void =>
                     setPageDetails({ ...pageDetail, page: newPageNo }, { replace: true })
                 }
                 >
-                    {users?.map((user: Record<string, any>) => {
-                        return (<UserRow key={user.registered.date} user={user}/>)
-                    })}
+                    <div className="userlisting__scroll">
+                        {users?.map((user: Record<string, any>) => {
+                            return (<UserRow key={user.registered.date} user={user}/>)
+                        })}
+                    </div>
+
+
+
                 </Paginator>
             </div> : <div className="loader">...Loading</div>}
         </>

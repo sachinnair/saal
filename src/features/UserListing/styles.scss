@@ -2,4 +2,37 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+
+    &__scroll {
+        min-height: 500px;
+        overflow: auto;
+    }
+}
+
+.userrow {
+    height: 8rem;
+    background-color: rgb(207, 205, 205);
+    display: flex;
+    flex-direction: row ;
+    overflow-wrap: break-word;
+    margin: 5px;
+
+    &__imageholder {
+        text-align: center;
+        width: 100px;
+        height: 100%;
+        min-height: 100px;
+        background-color: #b8babb;
+        flex: 1;
+    }
+    &__name {
+        height: 100px;
+        overflow-wrap: break-word;
+        flex: 3;
+    }
+    &__information {
+       background-color: grey;
+       overflow-wrap: break-word;
+       margin-top: 1rem;
+    }
 }
