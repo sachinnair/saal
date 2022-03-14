@@ -1,0 +1,25 @@
+@import 'src/common/global';
+
+.paginator {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    min-height: 600px;
+
+    &__holder {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 4rem;
+
+    &__button {
+        background-color: burlywood;
+    }
+}
