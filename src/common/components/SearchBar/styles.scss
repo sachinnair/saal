@@ -1,0 +1,24 @@
+@import 'src/common/global';
+
+.searchbar {
+    text-align: center;
+    background: #e9a857;
+    padding-top: $spacing;
+    padding-bottom: $spacing;
+
+    &__input {
+        width: 50%;
+    }
+
+    &__button {
+        background: brown;
+        color: white;
+    }
+
+    &__validator {
+        color: red;
+        background: white;
+        padding: 0.3rem;
+        margin-top: $spacing;
+    }
+}
